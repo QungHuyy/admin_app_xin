@@ -14,7 +14,7 @@ const productAPI = {
 
     // Sử dụng domain riêng cho create
     create: (formData, headers = { "Content-Type": "application/json" }) => {
-        const url = `https://search-by-ai.onrender.com/product/create`;
+        const url = `https://search-by-ai-e2av.onrender.com/product/create`;
         return axios.post(url, formData, { headers });
     },
 
