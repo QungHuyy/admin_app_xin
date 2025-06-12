@@ -27,7 +27,7 @@ function Search({ handlerSearch }) {
     }
     return (
         <div>
-            <input className="form-control w-40" type="text" placeholder="Enter Search!" value={search} onChange={onChangeText} />
+            <input className="form-control w-40" type="text" placeholder="Nhập từ khóa tìm kiếm..." value={search} onChange={onChangeText} />
         </div>
     );
 }

@@ -92,7 +92,7 @@ function Login() {
                         <div className="text-center">
                             <img src="../assets/images/big/icon.png" alt="wrapkit" />
                         </div>
-                        <h2 className="mt-3 text-center">Sign In</h2>
+                        <h2 className="mt-3 text-center">Đăng Nhập</h2>
 
                         {validationMsg.api && <p className="form-text text-danger">{validationMsg.api}</p>}
 
@@ -102,22 +102,22 @@ function Login() {
                                     <div className="form-group">
                                         <label className="text-dark" htmlFor="uname">Email</label>
                                         <input className="form-control" name="email" type="text"
-                                               placeholder="Enter your email"
+                                               placeholder="Nhập email của bạn"
                                                value={email} onChange={(e) => setEmail(e.target.value)} />
                                         <p className="form-text text-danger">{validationMsg.email}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-12">
                                     <div className="form-group">
-                                        <label className="text-dark" htmlFor="pwd">Password</label>
+                                        <label className="text-dark" htmlFor="pwd">Mật khẩu</label>
                                         <input className="form-control" name="password" type="password"
-                                               placeholder="Enter your password"
+                                               placeholder="Nhập mật khẩu của bạn"
                                                value={password} onChange={(e) => setPassword(e.target.value)} />
                                         <p className="form-text text-danger">{validationMsg.password}</p>
                                     </div>
                                 </div>
                                 <div className="col-lg-12 text-center">
-                                    <button type="submit" className="btn btn-block btn-dark">Sign In</button>
+                                    <button type="submit" className="btn btn-block btn-dark">Đăng Nhập</button>
                                 </div>
                             </div>
                         </form>

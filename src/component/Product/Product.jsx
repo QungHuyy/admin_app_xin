@@ -71,25 +71,25 @@ function Product() {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Products</h4>
+                                <h4 className="card-title">Sản Phẩm</h4>
                                 <Search handlerSearch={handlerSearch} />
 
-                                <Link to="/product/create" className="btn btn-primary my-3">New create</Link>
+                                <Link to="/product/create" className="btn btn-primary my-3">Tạo mới</Link>
 
                                 <div className="table-responsive">
                                     <table className="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Price</th>
-                                                <th>Image</th>
-                                                <th>Describe</th>
+                                                <th>Tên</th>
+                                                <th>Giá</th>
+                                                <th>Hình ảnh</th>
+                                                <th>Mô tả</th>
                                                 {/* <th>Producer</th> */}
-                                                <th>Category</th>
-                                                <th>Quantity</th>
-                                                <th>Gender</th>
-                                                <th>Edit</th>
+                                                <th>Danh mục</th>
+                                                <th>Số lượng</th>
+                                                <th>Giới tính</th>
+                                                <th>Thao tác</th>
                                             </tr>
                                         </thead>
 
@@ -109,8 +109,8 @@ function Product() {
                                                         <td>{value.gender}</td>
                                                         <td>
                                                             <div className="d-flex">
-                                                                <Link to={"/product/update/" + value._id} className="btn btn-success mr-1">Update</Link>
-                                                                <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleDelete(value._id)} className="btn btn-danger" >Delete</button>
+                                                                <Link to={"/product/update/" + value._id} className="btn btn-success mr-1">Cập nhật</Link>
+                                                                <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleDelete(value._id)} className="btn btn-danger" >Xóa</button>
                                                             </div>
                                                         </td>
                                                     </tr>

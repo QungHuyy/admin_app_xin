@@ -146,7 +146,7 @@ function CreateProduct(props) {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Create Product</h4>
+                                <h4 className="card-title">Tạo Sản Phẩm Mới</h4>
                                 {
                                     validationMsg.api === "Bạn đã thêm thành công" ?
                                         (
@@ -165,12 +165,12 @@ function CreateProduct(props) {
 
                                 <form onSubmit={handleSubmit(handleCreate)}>
                                     <div className="form-group w-50">
-                                        <label htmlFor="name">Tên Product</label>
+                                        <label htmlFor="name">Tên sản phẩm</label>
                                         <input type="text" className="form-control" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
                                         <p className="form-text text-danger">{validationMsg.name}</p>
                                     </div>
                                     <div className="form-group w-50">
-                                        <label htmlFor="price">Giá Product</label>
+                                        <label htmlFor="price">Giá sản phẩm</label>
                                         <input type="text" className="form-control" id="price" name="price" value={price} onChange={(e) => onChangePrice(e)} required />
                                         <p className="form-text text-danger">{validationMsg.price}</p>
                                     </div>
@@ -253,7 +253,7 @@ function CreateProduct(props) {
                                         <input type="file" className="form-control-file" name="file" onChange={saveFile} />
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary">Create Product</button>
+                                    <button type="submit" className="btn btn-primary">Tạo Sản Phẩm</button>
                                 </form>
                             </div>
                         </div>

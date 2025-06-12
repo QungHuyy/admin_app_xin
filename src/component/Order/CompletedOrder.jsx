@@ -244,21 +244,21 @@ function CompletedOrder(props) {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Complete Order</h4>
+                                <h4 className="card-title">Đơn Hàng Hoàn Thành</h4>
                                 <div className="table-responsive mt-3" id="customers">
                                     <table className="table table-striped table-bordered no-wrap" id="tab_customers">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Product</th>
-                                                <th>Name</th>
+                                                <th>Sản phẩm</th>
+                                                <th>Tên</th>
                                                 <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
-                                                <th>Total</th>
-                                                <th>Payment</th>
-                                                <th>Action</th>
+                                                <th>Điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Trạng thái</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Thanh toán</th>
+                                                <th>Thao tác</th>
                                             </tr>
                                         </thead>
 
@@ -309,7 +309,7 @@ function CompletedOrder(props) {
                                             }
                                         </tbody>
                                     </table>
-                                    <h4 className="card-title">Total Money: {new Intl.NumberFormat('vi-VN',{style: 'decimal',decimal: 'VND'}).format(totalMoney)+ ' VNĐ'}</h4>
+                                    <h4 className="card-title">Tổng tiền: {new Intl.NumberFormat('vi-VN',{style: 'decimal',decimal: 'VND'}).format(totalMoney)+ ' VNĐ'}</h4>
                                 </div>
                                 <Pagination filter={filter} onPageChange={onPageChange} totalPage={totalPage} />
                                     <div>

@@ -74,21 +74,21 @@ function ConfirmDelivery(props) {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Confirm Delivery</h4>
+                                <h4 className="card-title">Xác Nhận Vận Chuyển</h4>
 
                                 <div className="table-responsive mt-3">
                                     <table className="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Action</th>
+                                                <th>Thao tác</th>
                                                 <th>ID</th>
-                                                <th>Name</th>
+                                                <th>Tên</th>
                                                 <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
-                                                <th>Total Money</th>
-                                                <th>Payment</th>
+                                                <th>Điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Trạng thái</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Thanh toán</th>
 
                                             </tr>
                                         </thead>
@@ -99,7 +99,7 @@ function ConfirmDelivery(props) {
                                                     <tr key={index}>
                                                         <td>
                                                             <div className="d-flex">
-                                                                <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Detail</Link>
+                                                                <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Chi tiết</Link>
 
                                                                 <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleConfirm(value)} className="btn btn-success mr-1" >Hoàn tất</button>
 
