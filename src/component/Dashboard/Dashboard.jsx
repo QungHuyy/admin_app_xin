@@ -315,7 +315,7 @@ const Dashboard = () => {
                                                         <th>Tên khách hàng</th>
                                                         <th>Số điện thoại</th>
                                                         <th>Ngày đặt đơn</th>
-                                                        <th>Product đã đặt</th>
+                                                        <th>Sản phẩm đã đặt</th>
                                                         <th>Trạng thái</th>
                                                         <th>Tổng tiền</th>
                                                         <th>Hành động</th>

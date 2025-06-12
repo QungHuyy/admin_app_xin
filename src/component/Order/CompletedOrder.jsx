@@ -300,7 +300,7 @@ function CompletedOrder(props) {
                                                         <td className="name">{value.pay === true ? "Đã thanh toán" : "Chưa thanh toán"}</td>
                                                         <td>
                                                             <div className="d-flex">
-                                                                <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Detail</Link>
+                                                                <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Chi tiết</Link>
 
                                                             </div>
                                                         </td>
