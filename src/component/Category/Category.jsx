@@ -46,15 +46,26 @@ function Category(props) {
     }
 
     const handleDelete = async (value) => {
-        const query = '?' + queryString.stringify({ id: value._id })
+        // Hiển thị hộp thoại xác nhận trước khi xóa
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn xóa danh mục "${value.category}" không?`);
+        
+        // Chỉ tiếp tục xóa nếu người dùng đã xác nhận
+        if (isConfirmed) {
+            const query = '?' + queryString.stringify({ id: value._id })
 
-        const response = await categoryAPI.delete(query)
+            const response = await categoryAPI.delete(query)
 
-        if (response.msg === "Thanh Cong") {
-            setFilter({
-                ...filter,
-                status: !filter.status
-            })
+            if (response.msg === "Thanh Cong") {
+                setFilter({
+                    ...filter,
+                    status: !filter.status
+                })
+                // Thông báo xóa thành công
+                alert("Xóa danh mục thành công!");
+            } else {
+                // Thông báo lỗi nếu có
+                alert("Có lỗi xảy ra khi xóa danh mục!");
+            }
         }
     }
 
@@ -97,7 +108,14 @@ function Category(props) {
                                                                 {/* <Link to={"/producer/" + value.category} className="btn btn-info mr-1">Detail</Link>
                                                                 <Link to={"/producer/update/" + value._id} className="btn btn-success mr-1">Update</Link> */}
 
-                                                                <button type="button" onClick={() => handleDelete(value)} style={{ cursor: 'pointer', color: 'white' }} className="btn btn-danger" >Xóa</button>
+                                                                <button 
+                                                                    type="button" 
+                                                                    onClick={() => handleDelete(value)} 
+                                                                    style={{ cursor: 'pointer', color: 'white' }} 
+                                                                    className="btn btn-danger" 
+                                                                >
+                                                                    Xóa
+                                                                </button>
                                                             </div>
                                                         </td>
                                                     </tr>

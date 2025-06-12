@@ -47,20 +47,30 @@ function Product() {
         })
     }
 
-    const handleDelete = async (value) => {
+    const handleDelete = async (value, productName) => {
+        // Hiển thị hộp thoại xác nhận trước khi xóa
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn xóa sản phẩm "${productName}" không?`);
+        
+        // Chỉ tiếp tục xóa nếu người dùng đã xác nhận
+        if (isConfirmed) {
+            const data = {
+                id: value
+            }
+            const query = '?' + queryString.stringify(data)
 
-        const data = {
-            id: value
-        }
-        const query = '?' + queryString.stringify(data)
+            const response = await productAPI.delete(query)
 
-        const response = await productAPI.delete(query)
-
-        if (response.msg === "Thanh Cong") {
-            setFilter({
-                ...filter,
-                status: !filter.status
-            })
+            if (response.msg === "Thanh Cong") {
+                setFilter({
+                    ...filter,
+                    status: !filter.status
+                })
+                // Thông báo xóa thành công
+                alert("Xóa sản phẩm thành công!");
+            } else {
+                // Thông báo lỗi nếu có
+                alert("Có lỗi xảy ra khi xóa sản phẩm!");
+            }
         }
     }
 
@@ -110,7 +120,14 @@ function Product() {
                                                         <td>
                                                             <div className="d-flex">
                                                                 <Link to={"/product/update/" + value._id} className="btn btn-success mr-1">Cập nhật</Link>
-                                                                <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleDelete(value._id)} className="btn btn-danger" >Xóa</button>
+                                                                <button 
+                                                                    type="button" 
+                                                                    style={{ cursor: 'pointer', color: 'white' }} 
+                                                                    onClick={() => handleDelete(value._id, value.name_product)} 
+                                                                    className="btn btn-danger"
+                                                                >
+                                                                    Xóa
+                                                                </button>
                                                             </div>
                                                         </td>
                                                     </tr>

@@ -42,28 +42,50 @@ function Delivery(props) {
 
 
     const handleConfirm = async (value) => {
-        const query = '?' + queryString.stringify({ id: value._id })
+        // Hiển thị hộp thoại xác nhận trước khi xác nhận đơn hàng
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn xác nhận vận chuyển đơn hàng này không?`);
+        
+        // Chỉ tiếp tục nếu người dùng đã xác nhận
+        if (isConfirmed) {
+            const query = '?' + queryString.stringify({ id: value._id })
 
-        const response = await orderAPI.delivery(query)
+            const response = await orderAPI.delivery(query)
 
-        if (response.msg === "Thanh Cong") {
-            setFilter({
-                ...filter,
-                change: !filter.change
-            })
+            if (response.msg === "Thanh Cong") {
+                setFilter({
+                    ...filter,
+                    change: !filter.change
+                })
+                // Thông báo thành công
+                alert("Xác nhận vận chuyển thành công!");
+            } else {
+                // Thông báo lỗi nếu có
+                alert("Có lỗi xảy ra khi xác nhận vận chuyển!");
+            }
         }
     }
 
     const handleCancel = async (value) => {
-        const query = '?' + queryString.stringify({ id: value._id })
+        // Hiển thị hộp thoại xác nhận trước khi hủy đơn hàng
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn hủy đơn hàng này không?`);
+        
+        // Chỉ tiếp tục nếu người dùng đã xác nhận
+        if (isConfirmed) {
+            const query = '?' + queryString.stringify({ id: value._id })
 
-        const response = await orderAPI.cancelOrder(query)
+            const response = await orderAPI.cancelOrder(query)
 
-        if (response.msg === "Thanh Cong") {
-            setFilter({
-                ...filter,
-                change: !filter.change
-            })
+            if (response.msg === "Thanh Cong") {
+                setFilter({
+                    ...filter,
+                    change: !filter.change
+                })
+                // Thông báo thành công
+                alert("Hủy đơn hàng thành công!");
+            } else {
+                // Thông báo lỗi nếu có
+                alert("Có lỗi xảy ra khi hủy đơn hàng!");
+            }
         }
     }
 
@@ -103,10 +125,25 @@ function Delivery(props) {
                                                                 <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Chi tiết</Link>
 
 
-                                                                <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleConfirm(value)} className="btn btn-success mr-1" >Xác nhận</button>
+                                                                <button 
+                                                                    type="button" 
+                                                                    style={{ cursor: 'pointer', color: 'white' }} 
+                                                                    onClick={() => handleConfirm(value)} 
+                                                                    className="btn btn-success mr-1" 
+                                                                >
+                                                                    Xác nhận
+                                                                </button>
 
                                                                 {
-                                                                    !value.pay && <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleCancel(value)} className="btn btn-danger" >Hủy bỏ</button>
+                                                                    !value.pay && 
+                                                                    <button 
+                                                                        type="button" 
+                                                                        style={{ cursor: 'pointer', color: 'white' }} 
+                                                                        onClick={() => handleCancel(value)} 
+                                                                        className="btn btn-danger" 
+                                                                    >
+                                                                        Hủy bỏ
+                                                                    </button>
                                                                 }  
                                                             </div>
                                                         </td>

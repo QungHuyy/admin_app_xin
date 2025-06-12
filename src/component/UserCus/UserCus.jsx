@@ -47,15 +47,26 @@ function UserCus(props) {
     }
 
     const handleDelete = async (value) => {
-        const query = '?' + queryString.stringify({ id: value._id })
+        // Hiển thị hộp thoại xác nhận trước khi xóa
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn xóa khách hàng "${value.fullname}" không?`);
+        
+        // Chỉ tiếp tục xóa nếu người dùng đã xác nhận
+        if (isConfirmed) {
+            const query = '?' + queryString.stringify({ id: value._id })
 
-        const response = await userAPI.delete(query)
+            const response = await userAPI.delete(query)
 
-        if (response.msg === "Thanh Cong") {
-            setFilter({
-                ...filter,
-                status: !filter.status
-            })
+            if (response.msg === "Thanh Cong") {
+                setFilter({
+                    ...filter,
+                    status: !filter.status
+                })
+                // Thông báo xóa thành công
+                alert("Xóa khách hàng thành công!");
+            } else {
+                // Thông báo lỗi nếu có
+                alert("Có lỗi xảy ra khi xóa khách hàng!");
+            }
         }
     }
 
@@ -95,7 +106,14 @@ function UserCus(props) {
                                                             <div className="d-flex">
                                                                 <Link to={"user/update/" + value._id} className="btn btn-success mr-1">Chi tiết</Link>
 
-                                                                <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleDelete(value)} className="btn btn-danger" >Xóa</button>
+                                                                <button 
+                                                                    type="button" 
+                                                                    style={{ cursor: 'pointer', color: 'white' }} 
+                                                                    onClick={() => handleDelete(value)} 
+                                                                    className="btn btn-danger" 
+                                                                >
+                                                                    Xóa
+                                                                </button>
                                                             </div>
                                                         </td>
                                                     </tr>

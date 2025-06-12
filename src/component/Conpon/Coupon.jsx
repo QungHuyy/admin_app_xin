@@ -45,15 +45,22 @@ function Coupon(props) {
         })
     }
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id, code) => {
+        // Hiển thị hộp thoại xác nhận trước khi xóa
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn xóa mã giảm giá "${code}" không?`);
+        
+        // Chỉ tiếp tục xóa nếu người dùng đã xác nhận
+        if (isConfirmed) {
+            const response = await CouponAPI.deleteCoupons(id)
 
-        const response = await CouponAPI.deleteCoupons(id)
-
-        setFilter({
-            ...filter,
-            status: !filter.status
-        })
-
+            setFilter({
+                ...filter,
+                status: !filter.status
+            })
+            
+            // Thông báo xóa thành công
+            alert("Xóa mã giảm giá thành công!");
+        }
     }
 
     return (
@@ -94,7 +101,14 @@ function Coupon(props) {
                                                             <div className="d-flex">
                                                                 <Link to={"/coupon/" + value._id} className="btn btn-success mr-1">Cập nhật</Link>
 
-                                                                <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleDelete(value._id)} className="btn btn-danger" >Xóa</button>
+                                                                <button 
+                                                                    type="button" 
+                                                                    style={{ cursor: 'pointer', color: 'white' }} 
+                                                                    onClick={() => handleDelete(value._id, value.code)} 
+                                                                    className="btn btn-danger" 
+                                                                >
+                                                                    Xóa
+                                                                </button>
                                                             </div>
                                                         </td>
                                                     </tr>
