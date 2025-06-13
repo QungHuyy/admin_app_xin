@@ -4,19 +4,13 @@ import queryString from 'query-string';
 // Set up default config for http requests here
 // Please have a look at here `https://github.com/axios/axios#requestconfig` for the full list of configs
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:8000/api', //cổng local http://localhost:8000/api cỏng render https://server-app-bv0n.onrender.com/api
+    baseURL: 'https://server-app-main.onrender.com/api', //cổng local http://localhost:8000/api cỏng render https://server-app-main.onrender.com
     headers: {
         'content-type': 'application/json',
     },
     paramsSerializer: params => queryString.stringify(params),
 });
-// const axiosClient = axios.create({
-//     baseURL: 'https://server-app-bv0n.onrender.com/api', //cổng local http://localhost:8000/api cỏng render https://server-app-bv0n.onrender.com/api
-//     headers: {
-//         'content-type': 'application/json',
-//     },
-//     paramsSerializer: params => queryString.stringify(params),
-// });
+
 
 axiosClient.interceptors.request.use(async (config) => {
     // Handle token here ...
