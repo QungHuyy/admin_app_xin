@@ -72,15 +72,19 @@ function ConfirmOrder(props) {
     }
 
     const handleCancel = async (value) => {
+        // Hiển thị hộp thoại xác nhận trước khi hủy đơn hàng
+        const isConfirmed = window.confirm(`Bạn có chắc chắn muốn hủy đơn hàng này không?`);
+        if (!isConfirmed) return;
         const query = '?' + queryString.stringify({ id: value._id })
-
         const response = await orderAPI.cancelOrder(query)
-
         if (response.msg === "Thanh Cong") {
             setFilter({
                 ...filter,
                 change: !filter.change
             })
+            alert("Hủy đơn hàng thành công!");
+        } else {
+            alert("Có lỗi xảy ra khi hủy đơn hàng!");
         }
     }
 
@@ -100,17 +104,15 @@ function ConfirmOrder(props) {
                                     <table className="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Action</th>
+                                                <th>Thao tác</th>
                                                 <th>ID</th>
-                                                <th>Name</th>
+                                                <th>Tên</th>
                                                 <th>Email</th>
-                                                <th>Phone</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
-                                                <th>Code</th>
-                                                <th>Total Money</th>
-                                                <th>Payment</th>
-
+                                                <th>Điện thoại</th>
+                                                <th>Địa chỉ</th>
+                                                <th>Trạng thái</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Thanh toán</th>
                                             </tr>
                                         </thead>
 
@@ -144,7 +146,6 @@ function ConfirmOrder(props) {
                                                                 }
                                                             })()}
                                                         </td>
-                                                        <th clasName="name">{value.id_coupon}</th>
                                                         <td className="name">{new Intl.NumberFormat('vi-VN',{style: 'decimal',decimal: 'VND'}).format(value.total)+ ' VNĐ'}</td>
                                                         <td className="name">{value.pay === true ? "Đã thanh toán" : "Chưa thanh toán"}</td>
 
