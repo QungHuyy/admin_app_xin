@@ -75,7 +75,7 @@ function DetailOrder(props) {
                                                 <h5>Địa chỉ: {order.address}</h5>
                                                 <h5>Phí vận chuyển: {new Intl.NumberFormat('vi-VN',{style: 'decimal',decimal: 'VND'}).format(order.feeship)+ ' VNĐ'}</h5>
                                                 <h5>Tổng tiền: {new Intl.NumberFormat('vi-VN',{style: 'decimal',decimal: 'VND'}).format(order.total)+ ' VNĐ'}</h5>
-                                                <h5>Thanh toán: {order.id_payment?.pay_name || 'N/A'}</h5>
+                                                {/* <h5>Thanh toán: {order.id_payment?.pay_name || 'N/A'}</h5> */}
                                                 <h5>Thời gian tạo: {order.create_time}</h5>
                                             </div>
                                         ) :

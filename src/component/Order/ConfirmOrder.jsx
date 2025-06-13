@@ -92,7 +92,7 @@ function ConfirmOrder(props) {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Confirm Order</h4>
+                                <h4 className="card-title">Xác nhận đơn hàng</h4>
                                 {
                                     note ? (<h5>{note}</h5>) : (<div></div>)
                                 }
@@ -120,7 +120,7 @@ function ConfirmOrder(props) {
                                                     <tr key={index}>
                                                         <td>
                                                             <div className="d-flex">
-                                                                <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Detail</Link>
+                                                                <Link to={"/order/detail/" + value._id} className="btn btn-info mr-1">Chi tiết</Link>
 
                                                                 <button type="button" style={{ cursor: 'pointer', color: 'white' }} onClick={() => handleConfirm(value)} className="btn btn-success mr-1" >Xác nhận</button>
                                                                 {

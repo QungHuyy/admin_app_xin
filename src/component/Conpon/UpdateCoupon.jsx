@@ -74,7 +74,7 @@ function UpdateCoupon(props) {
                     <div className="col-12">
                         <div className="card">
                             <div className="card-body">
-                                <h4 className="card-title">Create Product</h4>
+                                <h4 className="card-title">Cập nhật mã giảm giá</h4>
                                 {
                                     showMessage === "Bạn đã cập nhật thành công" ?
                                         (

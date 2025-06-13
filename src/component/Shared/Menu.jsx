@@ -31,7 +31,7 @@ function Menu() {
               <nav className="sidebar-nav">
                 <ul id="sidebarnav">
                   <li className="sidebar-item d-flex align-items-center justify-content-center pt-3 pb-4">
-                    <h3 className="text-primary font-weight-bold">QUẢN TRỊ HỆ THỐNG</h3>
+                    <h3 className="text-primary font-weight-bold">ADMIN PANEL</h3>
                   </li>
                   
                   {/* Thêm Dashboard ở đầu menu */}
@@ -43,7 +43,7 @@ function Menu() {
                   </li>
                   
                   <li className="list-divider"></li>
-                  {/* <li className="nav-small-cap"><span className="hide-menu">Quản lý hệ thống</span></li> */}
+                 {/* <li className="nav-small-cap"><span className="hide-menu">ADMIN PANEL</span></li> */}
                   <li className="sidebar-item">
                     <a className="sidebar-link has-arrow" href="#" aria-expanded="false">
                       <i data-feather="grid" className="feather-icon"></i>
